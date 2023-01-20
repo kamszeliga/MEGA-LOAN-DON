@@ -86,6 +86,38 @@ footer {
     font-size: 4rem;
     padding-right: .5rem;
 }
+
+
+.tableDark {
+    background-color: var(--kls-darker-color);
+    color: var(--kls-light-color);
+}
+
+.buttonColor {
+    background-color: var(--kls-dark-color);
+    color: var(--kls-light-color);
+}
+
+.buttonColor:hover {
+    background-color: var(--kls-highlight-color);
+    color: var(--kls-darker-color);
+}
+
+.buttonColor2 {
+    background-color: var(--kls-secondary-color);
+    color: var(--kls-light-color);
+}
+
+.buttonColor2:hover {
+    background-color: var(--kls-highlight-color);
+    color: var(--kls-darker-color);
+}
+
+.mainDiv {
+    background-color: var(--kls-secondary-color);
+    color: white;
+    border-radius: .5rem;
+}
 /*END: MAIN BODY*/
 
 
