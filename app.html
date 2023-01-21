@@ -102,7 +102,7 @@
                                 placeholder="Enter Interest Rate" aria-label="loanInterest" required />
                         </p>
                     </form>
-                    <div class="text-end"><button onclick="somefunction()" type="button"
+                    <div class="text-end"><button onclick="calculateMortgage()" type="button"
                             class="btn buttonColor mb-2 mt-5" id="sendButton">Calculate</button></div>
                 </aside>
             </div>
@@ -119,7 +119,7 @@
                         <th>Current Balance</th>
                     </tr>
                 </thead>
-                <tbody id="eventTableBody">
+                <tbody id="loanTableBody">
                     <!--Table Template Goes Here-->
                 </tbody>
             </table>
@@ -146,6 +146,19 @@
         </div>
     </footer>
 
+    <!-- table row template -->
+    <template id="loanTableRowTemplate" >
+        <tr>
+            <td data-id="month"></td>
+            <td data-id="payment"></td>
+            <td data-id="principal"></td>
+            <td data-id="interest"></td>
+            <td data-id="totalInterest"></td>
+            <td data-id="currentBalance"></td>
+        </tr>
+      </template>
+
+
     <!--BOOTSTRAP Script: Always at the bottom above the closing body tag-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -154,9 +167,7 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script src="/js/site.js"></script>
-    <script>
-        document.getElementById('btnSubmit').addEventListener('click', displayMessage);
-    </script>
+
 </body>
 
 </html>
