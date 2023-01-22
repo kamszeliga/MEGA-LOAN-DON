@@ -1,7 +1,3 @@
-var loanData = [{
-},
-]
-
 function calculateMortgage() {
 
     saveLoanData();
@@ -14,43 +10,6 @@ function calculateMortgage() {
     displayLoanData(currLoan);
 
 }
-
-// function displayStats(loanArray) {
-//     // let totalAttendance = calculateTotal(eventsArray);
-//     // let averageAttendance = calculateAverage(eventsArray);
-//     // let mostAttendance = calculateMost(eventsArray);
-//     // let leastAttendance = calculateMin(eventsArray);
-
-//     let stats = calculateStats(eventsArray);
-
-//     document.getElementById('total').textContent = stats.totalAttendance.toLocaleString("en-US", { maximumFractionDigits: 0, minimumFractionDigits: 0, });
-//     document.getElementById('average').textContent = stats.averageAttendance.toLocaleString("en-US", { maximumFractionDigits: 0, minimumFractionDigits: 0, });
-//     document.getElementById('most').textContent = stats.mostAttendance.toLocaleString("en-US", { maximumFractionDigits: 0, minimumFractionDigits: 0, });
-//     document.getElementById('least').textContent = stats.leastAttendance.toLocaleString("en-US", { maximumFractionDigits: 0, minimumFractionDigits: 0, });
-// }
-
-// function calculateStats(loanArray) {
-
-//     let sum = 0;
-//     let aver = 0;
-//     let max = eventsArray[0].attendance;
-//     let min = eventsArray[0].attendance;
-
-//     for (let index = 0; index < eventsArray.length; index++) {
-//         let currentEvent = eventsArray[index];
-//         sum = sum + currentEvent.attendance; }
-//     }
-
-//     aver = sum / eventsArray.length;
-
-//     let stats = {
-//         totalAttendance: sum,
-//         averageAttendance: aver,
-//         mostAttendance: max,
-//         leastAttendance: min,
-//     }
-//     return stats;
-// }
 
 function displayLoanData(loanArray) {
 
@@ -88,27 +47,7 @@ function getLoanData() {
     return currentLoan;
 }
 
-// function getEvents(element) {
-//     let currentEvents = getEventData();
-//     let cityName = element.getAttribute('data-string');
-
-//     let filteredEvents = currentEvents;
-
-//     if (cityName != 'All') {
-//         filteredEvents = currentEvents.filter(
-//             function (event) {
-//                 if (cityName == event.city) {
-//                     return event;
-//                 }
-//             }
-//         );
-//     }
-//     document.getElementById('statsHeader').textContent = cityName;
-//     displayStats(filteredEvents);
-//     displayEventData(filteredEvents);
-// }
-
-
+//get values
 function saveLoanData() {
     let newLoanAmount = parseInt(document.getElementById('newLoanAmount').value);
     let newLoanTerm = parseInt(document.getElementById('newLoanTerm').value);
