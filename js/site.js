@@ -30,6 +30,16 @@ function calculateMortgage() {
     //get loan data input by user
     let currLoan = getLoanData();
 
+    if (loan.month >= 0){
+
+    // Total Monthly Payment: (amountloaned) * (rate/1200) / (1-(1+rate/1200) **-number of Months)
+    // Remaining Balace: Loan Amount - (Monthly Payment * Month)
+    // Interest Payment: Previous Month Remaining Balance - Interest Payment
+    // Remaining Balance: Previous Month Remaining Balance - Principal Payment
+
+    // single function for one monthly payment  
+ }
+
     displayStats(currLoan);
 
     displayLoanData(currLoan);
