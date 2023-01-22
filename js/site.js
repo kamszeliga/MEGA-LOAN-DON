@@ -1,3 +1,28 @@
+//ALL IDs
+    // monthlyPayment
+
+    // totalPrincipal
+    // totalInterest
+    // totalCost
+
+    // newLoanForm
+    // newLoanAmount
+    // newLoanTerm
+    // loanInterest
+
+    // loanTableBody
+
+    // loanTableRowTemplate
+    // month
+    // payment
+    // principal
+    // interest
+    // totalInterest
+    // currentBalance
+
+
+
+
 function calculateMortgage() {
 
     saveLoanData();
@@ -11,6 +36,7 @@ function calculateMortgage() {
 
 }
 
+// to put info on the table
 function displayLoanData(loanArray) {
 
     let tableBody = document.getElementById('loanTableBody');
