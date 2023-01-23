@@ -69,64 +69,64 @@
     <main class="content container mainContainer">
         <div class="text-end"><img class="sharkTop" src="/img/megaloandon_png.png"></div>
         <div class="col-12 bgDiv p-4 rounded-2 h-100">
-        <div class="row mb-2">
-            <div class="col col-12 col-md-8 mb-2">
-                <article class="p-2 mb-2 mainDiv h-100 w-100 text-center">
-                    <h1>Your Monthly Payments</h1>
-                    <h2 class="mt-5 mb-5" id="monthlyPayment">$0.00</h2>
-                    <div class="row">
-                        <div class="col-8 p-4 text-start fs-5">
-                            <p>Total Principal</p>
-                            <p>Total Interest</p>
-                            <p>Total Cost</p>
+            <div class="row mb-2">
+                <div class="col col-12 col-md-8 mb-2">
+                    <article class="p-2 mb-2 mainDiv h-100 w-100 text-center">
+                        <h1>Your Monthly Payments</h1>
+                        <h2 class="mt-5 mb-5" id="monthlyPayment">$0.00</h2>
+                        <div class="row">
+                            <div class="col-8 p-4 text-start fs-5">
+                                <p>Total Principal</p>
+                                <p>Total Interest</p>
+                                <p>Total Cost</p>
+                            </div>
+                            <div class="col-4 p-4 text-start fs-5">
+                                <p id="totalPrincipal">$0.00</p>
+                                <p id="totalInterest">$0.00</p>
+                                <p id="totalCost">$0.00</p>
+                            </div>
                         </div>
-                        <div class="col-4 p-4 text-start fs-5">
-                            <p id="totalPrincipal">$0.00</p>
-                            <p id="totalInterest">$0.00</p>
-                            <p id="totalCost">$0.00</p>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
+                <div class="col col-12 col-md-4 mb-2">
+                    <aside class="p-2 mainDiv h-100 w-100">
+                        <form id="newLoanForm">
+                            <p><b>Loan Amount</b><label class="form-label" for="loanAmount"></label>
+                                <input class="form-control mt-2" type="number" id="newLoanAmount"
+                                    placeholder="Enter Loan Amount" aria-label="loanAmount" required />
+                            </p>
+                            <p><b>Term (months)</b><label class="form-label" for="loanTerm"></label>
+                                <input class="form-control mt-2" type="number" id="newLoanTerm" placeholder="Enter Term"
+                                    aria-label="loanTerm" required />
+                            </p>
+                            <p><b>Interest Rate</b><label class="form-label" for="loanInterest"></label>
+                                <input class="form-control mt-2" type="number" id="newLoanInterest"
+                                    placeholder="Enter Interest Rate" aria-label="loanInterest" required />
+                            </p>
+                        </form>
+                        <div class="text-end"><button onclick="calculateMortgage()" type="button"
+                                class="btn buttonColor mb-2 mt-5" id="sendButton">Calculate</button></div>
+                    </aside>
+                </div>
             </div>
-            <div class="col col-12 col-md-4 mb-2">
-                <aside class="p-2 mainDiv h-100 w-100">
-                    <form id="newLoanForm">
-                        <p><b>Loan Amount</b><label class="form-label" for="loanAmount"></label>
-                            <input class="form-control mt-2" type="number" id="newLoanAmount"
-                                placeholder="Enter Loan Amount" aria-label="loanAmount" required />
-                        </p>
-                        <p><b>Term (months)</b><label class="form-label" for="loanTerm"></label>
-                            <input class="form-control mt-2" type="number" id="newLoanTerm" placeholder="Enter Term"
-                                aria-label="loanTerm" required />
-                        </p>
-                        <p><b>Interest Rate</b><label class="form-label" for="loanInterest"></label>
-                            <input class="form-control mt-2" type="number" id="newLoanInterest"
-                                placeholder="Enter Interest Rate" aria-label="loanInterest" required />
-                        </p>
-                    </form>
-                    <div class="text-end"><button onclick="calculateMortgage()" type="button"
-                            class="btn buttonColor mb-2 mt-5" id="sendButton">Calculate</button></div>
-                </aside>
+            <div class="table-responsive rounded-3">
+                <table class="table table-striped ">
+                    <thead class="tableDark">
+                        <tr>
+                            <th>Month</th>
+                            <th>Payment</th>
+                            <th>Principal</th>
+                            <th>Interest</th>
+                            <th>Total Interest</th>
+                            <th>Current Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody id="loanTableBody">
+                        <!--Table Template Goes Here-->
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="table-responsive rounded-3">
-            <table class="table table-striped ">
-                <thead class="tableDark">
-                    <tr>
-                        <th>Month</th>
-                        <th>Payment</th>
-                        <th>Principal</th>
-                        <th>Interest</th>
-                        <th>Total Interest</th>
-                        <th>Current Balance</th>
-                    </tr>
-                </thead>
-                <tbody id="loanTableBody">
-                    <!--Table Template Goes Here-->
-                </tbody>
-            </table>
-        </div>
-    </div>
     </main>
 
     <footer class="container-fluid footer-main">
@@ -150,7 +150,7 @@
     </footer>
 
     <!-- table row template -->
-    <template id="loanTableRowTemplate" >
+    <template id="loanTableRowTemplate">
         <tr>
             <td data-id="month"></td>
             <td data-id="payment"></td>
@@ -159,7 +159,7 @@
             <td data-id="totalInterest"></td>
             <td data-id="currentBalance"></td>
         </tr>
-      </template>
+    </template>
 
 
     <!--BOOTSTRAP Script: Always at the bottom above the closing body tag-->
