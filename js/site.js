@@ -19,8 +19,8 @@
 // interest
 // totalInterest
 // currentBalance
-let loan = [{}]
-
+let loan = []
+console.log(loan)
 // var events = [{
 //     event: "ComicCon",
 //     city: "New York",
@@ -37,7 +37,7 @@ function calculateMortgage() {
     calculateMonthlyValues(loan);
 
     // to put info on the table
-    displayLoanData();
+    displayLoanData(loan);
 
 }
 
@@ -52,7 +52,15 @@ function saveLoanData() {
         loanInterestRate: newLoanInterestRate,
     };
 
-    loan.push(newLoanRow);
+    if (loan == []) {
+
+        loan = newLoanRow
+    }
+
+    else {
+
+        loan.push(newLoanRow)
+    }
 }
 
 //calculate the payment, principal, interest, total interest & current balance for each month
@@ -62,22 +70,20 @@ function calculateMonthlyValues(loan) {
     let interestPayment = 0;
     let principalPayment = 0;
     let newLoanTerm = 0;
-    let loanInterestRate = loan.loanInterestRate
-    // let remainingBalance = 0;
+    let loanInterestRate = loan.loanInterestRate;
 
-    let newLoanRow = {};
+    let newLoanRow = [];
 
-    for (let month = 1; month <= loan.loanTerm; month++) {
-        console.log(balance)
-        console.log(loanInterestRate)
+    for (let month = 1; month <= loan[month].loanTerm; month++) {
+
         // Total Monthly Payment: (amountloaned) * (rate/1200) / (1-(1+rate/1200) ^number of Months)
-        totalMonthlyPayment = (loan.loanAmount) * (loan.loanTerm / 1200) / Math.pow((1 - (1 + loan.loanInterestRate / 1200)), loan.loanTerm)
+        totalMonthlyPayment = (loan[month].loanAmount) * (loan[month].loanTerm / 1200) / Math.pow((1 - (1 + loanInterestRate / 1200)), loan[month].loanTerm)
 
         // // Initial Balance: Loan Amount - (Monthly Payment * Month)
         //     balance = loan.loanAmount - (totalMonthlyPayment * month)
 
         // Interest Payment: Previous Month Remaining Balance * rate/1200
-        interestPayment = initialBalance * loan.loanInterestRate / 1200
+        interestPayment = balance * loanInterestRate / 1200
 
         // Principal Payment total monthly payment - interest payment
         principalPayment = totalMonthlyPayment - interestPayment
@@ -86,7 +92,7 @@ function calculateMonthlyValues(loan) {
         balance -= principalPayment
         // balance = balance - principalPayment
 
-        newLoanTerm = loan.loanTerm - month
+        newLoanTerm = loan[month].loanTerm - month
 
         // Add new balance & term to array
         newLoanRow = {
@@ -95,24 +101,28 @@ function calculateMonthlyValues(loan) {
             loanInterestRate
         }
 
-        loan.push(newLoanRow)
+        if (loan == []) {
+            loan = newLoanRow
+        }
+
+        else {
+            loan.push(newLoanRow)
+        }
     }
-
-
 }
 
 // to put info on the table
-function displayLoanData(loanArray) {
+function displayLoanData(loan) {
 
     let tableBody = document.getElementById('loanTableBody');
     const tableRowTemplate = document.getElementById('loanTableRowTemplate');
 
     tableBody.innerHTML = '';
 
-    for (let i = 0; i < loanArray.length; i++) {
+    for (let i = 0; i < loan.length; i++) {
 
         let loanRow = document.importNode(tableRowTemplate.content, true)
-        let currentLoan = loanArray[i];
+        let currentLoan = loan[i];
 
         let tableCells = loanRow.querySelectorAll("td")
 
