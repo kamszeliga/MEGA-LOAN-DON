@@ -19,6 +19,7 @@
 // interest
 // totalInterest
 // currentBalance
+
 let loan = []
 // var events = [{
 //     event: "ComicCon",
@@ -63,10 +64,10 @@ function calculateMonthlyValues(loan) {
 
     let newLoanRow = [];
 
-    for (let month = 1; month <= loan[month].loanTerm; month++) {
+    for (let month = 1; month <= loan.loanTerm; month++) {
 
         // Total Monthly Payment: (amountloaned) * (rate/1200) / (1-(1+rate/1200) ^number of Months)
-        totalMonthlyPayment = (loan[month].loanAmount) * (loan[month].loanTerm / 1200) / Math.pow((1 - (1 + loanInterestRate / 1200)), loan[month].loanTerm)
+        totalMonthlyPayment = (loan.loanAmount) * (loan.loanTerm / 1200) / Math.pow((1 - (1 + loanInterestRate / 1200)), loan.loanTerm)
 
         // // Initial Balance: Loan Amount - (Monthly Payment * Month)
         //     balance = loan.loanAmount - (totalMonthlyPayment * month)
@@ -81,7 +82,7 @@ function calculateMonthlyValues(loan) {
         balance -= principalPayment
         // balance = balance - principalPayment
 
-        newLoanTerm = loan[month].loanTerm - month
+        newLoanTerm = loan.loanTerm - month
 
         // Add new balance & term to array
         newLoanRow = {
