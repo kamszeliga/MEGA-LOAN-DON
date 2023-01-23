@@ -129,8 +129,6 @@ function displayLoanData(loan) {
 }
 
 function displayTotals(loan) {
-    let loan = loan;
-
     let totalPrincipal = parseInt(document.getElementById('newLoanAmount').value);
     document.getElementById('totalPrincipal').textContent = formatCurrency(totalPrincipal);
 
