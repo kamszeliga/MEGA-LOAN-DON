@@ -1,49 +1,67 @@
 //ALL IDs
-    // monthlyPayment
+// monthlyPayment
 
-    // totalPrincipal
-    // totalInterest
-    // totalCost
+// totalPrincipal
+// totalInterest
+// totalCost
 
-    // newLoanForm
-    // newLoanAmount
-    // newLoanTerm
-    // loanInterest
+// newLoanForm
+// newLoanAmount
+// newLoanTerm
+// loanInterest
 
-    // loanTableBody
+// loanTableBody
 
-    // loanTableRowTemplate
-    // month
-    // payment
-    // principal
-    // interest
-    // totalInterest
-    // currentBalance
-
-
+// loanTableRowTemplate
+// month
+// payment
+// principal
+// interest
+// totalInterest
+// currentBalance
 
 
 function calculateMortgage() {
 
+    //get loan data input by user
     saveLoanData();
 
-    //get loan data input by user
-    let currLoan = getLoanData();
+    //calculate the payment, principal, interest, total interest & current balance for each month
+    calculateMonthlyValues(newLoan);
 
-    if (loan.month >= 0){
+    // to put info on the table
+    displayLoanData();
 
-    // Total Monthly Payment: (amountloaned) * (rate/1200) / (1-(1+rate/1200) **-number of Months)
-    // Remaining Balace: Loan Amount - (Monthly Payment * Month)
-    // Interest Payment: Previous Month Remaining Balance - Interest Payment
-    // Remaining Balance: Previous Month Remaining Balance - Principal Payment
+}
 
-    // single function for one monthly payment  
- }
+function saveLoanData() {
+    let newLoanAmount = parseInt(document.getElementById('newLoanAmount').value);
+    let newLoanTerm = parseInt(document.getElementById('newLoanTerm').value);
+    let newLoanInterestRate = parseInt(document.getElementById('newLoanInterest').value);
 
-    displayStats(currLoan);
+    let newLoan = {
+        loanAmount: newLoanAmount,
+        loanTerm: newLoanTerm,
+        loanInterestRate: newLoanInterestRate,
+    };
 
-    displayLoanData(currLoan);
+    currentLoan.push(newLoan);
+}
 
+//calculate the payment, principal, interest, total interest & current balance for each month
+function calculateMonthlyValues(newLoan) {
+
+    let newLoan = loanArray
+
+    for (let i = 0; i < loanArray.length; i++) {
+
+        // Total Monthly Payment: (amountloaned) * (rate/1200) / (1-(1+rate/1200) **-number of Months)
+        // Remaining Balace: Loan Amount - (Monthly Payment * Month)
+        // Interest Payment: Previous Month Remaining Balance - Interest Payment
+        // Remaining Balance: Previous Month Remaining Balance - Principal Payment
+
+        // single function for one monthly payment  
+    }
 }
 
 // to put info on the table
@@ -57,9 +75,9 @@ function displayLoanData(loanArray) {
     for (let i = 0; i < loanArray.length; i++) {
 
         let loanRow = document.importNode(tableRowTemplate.content, true)
-        let currentLoan = eventsArray[i];
+        let currentLoan = loanArray[i];
 
-        let tableCells = eventRow.querySelectorAll("td")
+        let tableCells = loanRow.querySelectorAll("td")
 
         tableCells[0].textContent = currentLoan.month;
         tableCells[1].textContent = currentLoan.payment;
@@ -70,33 +88,4 @@ function displayLoanData(loanArray) {
 
         tableBody.appendChild(loanRow);
     }
-}
-
-function getLoanData() {
-    let currentLoan = JSON.parse(localStorage.getItem('megaloandonData'));
-
-    if (currentLoan == null) {
-        currentLoan = loanData;
-        localStorage.setItem('megaloandonData', JSON.stringify(currentLoan));
-    }
-
-    return currentLoan;
-}
-
-//get values
-function saveLoanData() {
-    let newLoanAmount = parseInt(document.getElementById('newLoanAmount').value);
-    let newLoanTerm = parseInt(document.getElementById('newLoanTerm').value);
-    let newLoanInterestRate = parseInt(document.getElementById('newLoanInterest').value);
-
-    let newLoan = {
-        loanAmount: newLoanAmount,
-        loanTerm: newLoanTerm,
-        loanInterestRate: newLoanInterestRate,
-    };
-
-    let currentLoan = getLoanData();
-    currentLoan.push(newLoan);
-
-    localStorage.setItem('megaloandonData', JSON.stringify(currentEvents));
 }
