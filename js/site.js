@@ -39,8 +39,7 @@ function calculateMortgage() {
     // to put info on the table
     displayLoanData(loanMonths);
 
-    let totalMonthlyPayment = totalMonthlyPayment(loanMonths);
-
+    displayTotals(loanMonths);
 
 }
 
@@ -102,15 +101,6 @@ function calculateMonthlyValues(loan) {
     return newLoanRow;
 }
 
-function totalMonthlyPayment(loan) {
-    let totalMonthlyPayment = loan.totalMonthlyPayment;
-    // let totalPrincipal = ;
-    // // let totalInterest= ;
-    // // let totalCost = ;
-
-    document.getElementById('monthlyPayment').textContent = totalMonthlyPayment;
-
-}
 
 // to put info on the table
 function displayLoanData(loan) {
@@ -136,6 +126,22 @@ function displayLoanData(loan) {
 
         tableBody.appendChild(loanRow);
     }
+}
+
+function displayTotals(loan) {
+    let loan = loan;
+
+    let totalPrincipal = parseInt(document.getElementById('newLoanAmount').value);
+    document.getElementById('totalPrincipal').textContent = formatCurrency(totalPrincipal);
+
+    let monthlyPayment = loan.totalMonthlyPayment;
+    document.getElementById('monthlyPayment').textContent = formatCurrency(monthlyPayment);
+
+    // let totalInterest= ;
+    // document.getElementById('totalInterest').textContent = formatCurrency(totalInterest);
+
+    // let totalCost = totalInterest + totalPrincipal;
+    // document.getElementById('totalCost').textContent = formatCurrency(totalCost);
 }
 
 function formatCurrency(value) {

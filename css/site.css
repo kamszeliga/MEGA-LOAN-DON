@@ -145,7 +145,7 @@ footer {
     background-repeat: no-repeat;
     background-position: top;
     background-size: cover;
-    background-color: var(--kls-dark-color);
+    background-color: black;
 }
 
 .bgDiv {
