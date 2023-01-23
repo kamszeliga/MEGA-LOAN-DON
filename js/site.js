@@ -20,7 +20,7 @@
 // totalInterest
 // currentBalance
 
-let loan = []
+
 // var events = [{
 //     event: "ComicCon",
 //     city: "New York",
@@ -31,13 +31,16 @@ let loan = []
 function calculateMortgage() {
 
     //get loan data input by user
-    saveLoanData();
+    let loanInfo = saveLoanData();
 
     //calculate the payment, principal, interest, total interest & current balance for each month
-    calculateMonthlyValues(loan);
+    let loanMonths = calculateMonthlyValues(loanInfo);
 
     // to put info on the table
-    displayLoanData(loan);
+    displayLoanData(loanMonths);
+
+    let totalMonthlyPayment = totalMonthlyPayment(loanMonths);
+
 
 }
 
@@ -51,6 +54,8 @@ function saveLoanData() {
         loanTerm: newLoanTerm,
         loanInterestRate: newLoanInterestRate,
     };
+
+    return newLoanRow;
 }
 
 //calculate the payment, principal, interest, total interest & current balance for each month
@@ -59,21 +64,21 @@ function calculateMonthlyValues(loan) {
     let balance = loan.loanAmount;
     let interestPayment = 0;
     let principalPayment = 0;
-    let newLoanTerm = 0;
     let loanInterestRate = loan.loanInterestRate;
+    let totalInterest = 0;
 
     let newLoanRow = [];
 
     for (let month = 1; month <= loan.loanTerm; month++) {
 
         // Total Monthly Payment: (amountloaned) * (rate/1200) / (1-(1+rate/1200) ^number of Months)
-        totalMonthlyPayment = (loan.loanAmount) * (loan.loanTerm / 1200) / Math.pow((1 - (1 + loanInterestRate / 1200)), loan.loanTerm)
+        totalMonthlyPayment = ((loan.loanAmount) * (loan.loanInterestRate / 1200)) / (1 - Math.pow((1 + loanInterestRate / 1200), -loan.loanTerm))
 
         // // Initial Balance: Loan Amount - (Monthly Payment * Month)
         //     balance = loan.loanAmount - (totalMonthlyPayment * month)
 
         // Interest Payment: Previous Month Remaining Balance * rate/1200
-        interestPayment = balance * loanInterestRate / 1200
+        interestPayment = balance * (loanInterestRate / 1200)
 
         // Principal Payment total monthly payment - interest payment
         principalPayment = totalMonthlyPayment - interestPayment
@@ -82,18 +87,29 @@ function calculateMonthlyValues(loan) {
         balance -= principalPayment
         // balance = balance - principalPayment
 
-        newLoanTerm = loan.loanTerm - month
+        totalInterest += interestPayment
 
         // Add new balance & term to array
-        newLoanRow = {
-            newLoanTerm,
+        newLoanRow.push({
+            month,
             totalMonthlyPayment,
             principalPayment,
-            loanInterestRate,
+            totalInterest,
             interestPayment,
             balance,
-        }
+        })
     }
+    return newLoanRow;
+}
+
+function totalMonthlyPayment(loan) {
+    let totalMonthlyPayment = loan.totalMonthlyPayment;
+    // let totalPrincipal = ;
+    // // let totalInterest= ;
+    // // let totalCost = ;
+
+    document.getElementById('monthlyPayment').textContent = totalMonthlyPayment;
+
 }
 
 // to put info on the table
@@ -112,12 +128,17 @@ function displayLoanData(loan) {
         let tableCells = loanRow.querySelectorAll("td")
 
         tableCells[0].textContent = currentLoan.month;
-        tableCells[1].textContent = currentLoan.payment;
-        tableCells[2].textContent = currentLoan.principal;
-        tableCells[3].textContent = currentLoan.interest;
-        tableCells[4].textContent = currentLoan.totalInterest;
-        tableCells[5].textContent = currentLoan.currentBalance;
+        tableCells[1].textContent = formatCurrency(currentLoan.totalMonthlyPayment);
+        tableCells[2].textContent = formatCurrency(currentLoan.principalPayment);
+        tableCells[3].textContent = formatCurrency(currentLoan.interestPayment);
+        tableCells[4].textContent = formatCurrency(currentLoan.totalInterest);
+        tableCells[5].textContent = formatCurrency(currentLoan.balance);
 
         tableBody.appendChild(loanRow);
     }
+}
+
+function formatCurrency(value) {
+    let formatter = new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' });
+    return formatter.format(Number(value));
 }
