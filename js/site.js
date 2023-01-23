@@ -20,7 +20,6 @@
 // totalInterest
 // currentBalance
 let loan = []
-console.log(loan)
 // var events = [{
 //     event: "ComicCon",
 //     city: "New York",

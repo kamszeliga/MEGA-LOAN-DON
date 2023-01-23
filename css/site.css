@@ -65,6 +65,33 @@ footer {
 }
 /*MAIN NAV END*/
 
+.mainBG {
+    background: url(/img/RainForest_blurred.jpg);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-color: var(--kls-light-color);
+}
+
+/* .bgimage {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url(/img/GridBG.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.bgimage2 {
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url(/img/GridBG-BLURRED.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+} */
+
 
 /*START: MAIN BODY*/
 
@@ -89,7 +116,12 @@ footer {
 
 
 .tableDark {
-    background-color: var(--kls-darker-color);
+    background-color: var(--kls-dark-color);
+    color: var(--kls-light-color);
+}
+
+.bgDiv {
+    background-color: var(--kls-primary-color);
     color: var(--kls-light-color);
 }
 
@@ -118,6 +150,17 @@ footer {
     color: white;
     border-radius: .5rem;
 }
+
+.sharkTop {
+    max-width: 400px;
+    margin-bottom: -3.2rem;
+}
+
+.mainContainer {
+    margin-bottom: 10rem;
+}
+
+
 /*END: MAIN BODY*/
 
 

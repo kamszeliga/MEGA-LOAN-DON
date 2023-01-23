@@ -24,7 +24,7 @@
     <link href="/css/site.css" rel="stylesheet" />
 </head>
 
-<body>
+<body class="mainBG">
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark" id="mainnav">
             <div class="container-fluid">
@@ -66,10 +66,12 @@
         </nav>
     </header>
 
-    <main class="content container mt-4">
+    <main class="content container mainContainer">
+        <div class="text-end"><img class="sharkTop" src="/img/megaloandon_png.png"></div>
+        <div class="col-12 bgDiv p-5 rounded-2 h-100">
         <div class="row mb-2">
             <div class="col col-12 col-md-8 mb-2">
-                <article class="p-2 mainDiv h-100 w-100 text-center">
+                <article class="p-2 mb-2 mainDiv h-100 w-100 text-center">
                     <h1>Your Monthly Payments</h1>
                     <h2 class="mt-5 mb-5" id="monthlyPayment">$0.00</h2>
                     <div class="row">
@@ -124,6 +126,7 @@
                 </tbody>
             </table>
         </div>
+    </div>
     </main>
 
     <footer class="container-fluid footer-main">
