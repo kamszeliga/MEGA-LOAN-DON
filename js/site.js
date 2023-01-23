@@ -137,7 +137,7 @@ function displayTotals(loan) {
     let monthlyPayment = loan[0].totalMonthlyPayment;
     document.getElementById('monthlyPayment').textContent = formatCurrency(monthlyPayment);
 
-    let totalInterestPayment = loan[59].totalInterest;
+    let totalInterestPayment = loan[loan.length - 1].totalInterest;
     document.getElementById('totalInterest').textContent = formatCurrency(totalInterestPayment);
 
     let totalCost = totalInterestPayment + totalPrincipal;
