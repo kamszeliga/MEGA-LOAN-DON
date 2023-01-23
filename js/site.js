@@ -51,16 +51,6 @@ function saveLoanData() {
         loanTerm: newLoanTerm,
         loanInterestRate: newLoanInterestRate,
     };
-
-    if (loan == []) {
-
-        loan = newLoanRow
-    }
-
-    else {
-
-        loan.push(newLoanRow)
-    }
 }
 
 //calculate the payment, principal, interest, total interest & current balance for each month
@@ -99,14 +89,6 @@ function calculateMonthlyValues(loan) {
             balance,
             newLoanTerm,
             loanInterestRate
-        }
-
-        if (loan == []) {
-            loan = newLoanRow
-        }
-
-        else {
-            loan.push(newLoanRow)
         }
     }
 }
