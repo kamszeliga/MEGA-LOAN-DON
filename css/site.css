@@ -8,7 +8,7 @@
 
     --kls-dark-color: #353433;
     --kls-darker-color: #1f1e1e;
-    --kls-light-color: #F0F0F0;
+    --kls-light-color: #f0efef;
     --kls-background-color: #fbfcf8;
 
     /* --kls-title-font: 'Bebas Neue', sans-serif;
@@ -69,7 +69,7 @@ footer {
     background: url(/img/RainForest_blurred.jpg);
     background-repeat: no-repeat;
     background-position: top;
-    background-color: var(--kls-light-color);
+    background-color: var(--kls-dark-color);
 }
 
 /* .bgimage {
@@ -116,12 +116,12 @@ footer {
 
 
 .tableDark {
-    background-color: var(--kls-dark-color);
-    color: var(--kls-light-color);
+    background-color: var(--kls-light-color);
+    color: var(--kls-dark-color);
 }
 
 .bgDiv {
-    background-color: var(--kls-primary-color);
+    background-color: var(--kls-secondary-color);
     color: var(--kls-light-color);
 }
 
@@ -146,14 +146,14 @@ footer {
 }
 
 .mainDiv {
-    background-color: var(--kls-secondary-color);
-    color: white;
+    background-color: var(--kls-light-color);
+    color: var(--kls-darker-color);
     border-radius: .5rem;
 }
 
 .sharkTop {
     max-width: 400px;
-    margin-bottom: -3.2rem;
+    margin-bottom: -1.5rem;
 }
 
 .mainContainer {
