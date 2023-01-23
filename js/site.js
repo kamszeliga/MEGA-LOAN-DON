@@ -129,17 +129,19 @@ function displayLoanData(loan) {
 }
 
 function displayTotals(loan) {
+
     let totalPrincipal = parseInt(document.getElementById('newLoanAmount').value);
     document.getElementById('totalPrincipal').textContent = formatCurrency(totalPrincipal);
 
-    let monthlyPayment = loan.totalMonthlyPayment;
+    // let monthlyPayment = loan.totalMonthlyPayment;
+    let monthlyPayment = loan[0].totalMonthlyPayment;
     document.getElementById('monthlyPayment').textContent = formatCurrency(monthlyPayment);
 
-    // let totalInterest= ;
-    // document.getElementById('totalInterest').textContent = formatCurrency(totalInterest);
+    let totalInterestPayment = loan[59].totalInterest;
+    document.getElementById('totalInterest').textContent = formatCurrency(totalInterestPayment);
 
-    // let totalCost = totalInterest + totalPrincipal;
-    // document.getElementById('totalCost').textContent = formatCurrency(totalCost);
+    let totalCost = totalInterestPayment + totalPrincipal;
+    document.getElementById('totalCost').textContent = formatCurrency(totalCost);
 }
 
 function formatCurrency(value) {
