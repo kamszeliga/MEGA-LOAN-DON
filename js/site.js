@@ -83,7 +83,7 @@ function calculateMonthlyValues(loan) {
         principalPayment = totalMonthlyPayment - interestPayment
 
         // Remaining Balance: Previous Month Remaining Balance - Principal Payment
-        balance -= principalPayment
+        balance = Math.abs(balance - principalPayment)
         // balance = balance - principalPayment
 
         totalInterest += interestPayment
