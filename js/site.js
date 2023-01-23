@@ -86,9 +86,12 @@ function calculateMonthlyValues(loan) {
 
         // Add new balance & term to array
         newLoanRow = {
-            balance,
             newLoanTerm,
-            loanInterestRate
+            totalMonthlyPayment,
+            principalPayment,
+            loanInterestRate,
+            interestPayment,
+            balance,
         }
     }
 }
