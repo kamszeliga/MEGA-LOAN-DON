@@ -63,6 +63,7 @@ footer {
     color: var(--kls-nav-toggler-color);
     font-size: 1.5rem;
 }
+
 /*MAIN NAV END*/
 
 /* .bgimage {
@@ -97,7 +98,7 @@ footer {
     list-style-type: none;
 }
 
-.checkList > li i {
+.checkList>li i {
     color: var(--kls-secondary-color);
     padding-right: .5rem;
 }
@@ -173,7 +174,7 @@ footer {
 
 
 
-/*START: Footer */ 
+/*START: Footer */
 
 .footer-main {
     background-color: var(--kls-darker-color);
@@ -194,4 +195,5 @@ footer {
 .socialicons {
     font-size: 1.5rem;
 }
-/*END: Footer */ 
+
+/*END: Footer */
