@@ -73,9 +73,6 @@ function calculateMonthlyValues(loan) {
         // Total Monthly Payment: (amountloaned) * (rate/1200) / (1-(1+rate/1200) ^number of Months)
         totalMonthlyPayment = ((loan.loanAmount) * (loan.loanInterestRate / 1200)) / (1 - Math.pow((1 + loanInterestRate / 1200), -loan.loanTerm))
 
-        // // Initial Balance: Loan Amount - (Monthly Payment * Month)
-        //     balance = loan.loanAmount - (totalMonthlyPayment * month)
-
         // Interest Payment: Previous Month Remaining Balance * rate/1200
         interestPayment = balance * (loanInterestRate / 1200)
 
@@ -84,7 +81,6 @@ function calculateMonthlyValues(loan) {
 
         // Remaining Balance: Previous Month Remaining Balance - Principal Payment
         balance = Math.abs(balance - principalPayment)
-        // balance = balance - principalPayment
 
         totalInterest += interestPayment
 
@@ -133,7 +129,6 @@ function displayTotals(loan) {
     let totalPrincipal = parseInt(document.getElementById('newLoanAmount').value);
     document.getElementById('totalPrincipal').textContent = formatCurrency(totalPrincipal);
 
-    // let monthlyPayment = loan.totalMonthlyPayment;
     let monthlyPayment = loan[0].totalMonthlyPayment;
     document.getElementById('monthlyPayment').textContent = formatCurrency(monthlyPayment);
 
