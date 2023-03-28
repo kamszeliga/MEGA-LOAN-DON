@@ -202,8 +202,29 @@ function formatCurrency(value) {
             <!--Code Description-->
             <div class="col-12 col-lg-4">
                 <p>The code is structured in several functions.</p>
-                <h5><code>functionhere()</code></h5>
-                <p>This function......</p>
+                <h5><code>calculateMortgage()</code></h5>
+                <p>This function is the main function that runs when the user presses the button to calculate their mortgage.</p>
+
+                <h5><code>saveLoanData()</code></h5>
+                <p>This function retrieves the input loan data from the page and sets the values as newLoanAmount, newLoanTerm,
+                    and newLoanInterestRate. It then instantiates an object with these values within it. </p>
+
+                <h5><code>calculateMonthlyValues()</code></h5>
+                <p>This function takes the data from the previous function and uses it to actually calcuate the user's mortgage. 
+                    It starts by setting the values to 0 for everything but the balance and loanInterestRate, which we already have the 
+                values for. These variables are then run through a for loop which will calcuate the monthly payments depending on how many 
+                months the user inserted. Each month pushes those values to the newLoanRow array. Once it has run through the loop for every 
+                month, it exits and returns the newLoanRow. </p>
+
+                <h5><code>displayLoanData()</code></h5>
+                <p>This function displays the data on the page. First it fetches the template from the html page and finds where the data will be posted. 
+                    Then it runs through the data using a for loop to display each loanRow on the table. This function also utilizes a formatCurrency function
+                to display the values in USD with the correct amount of decimals. </p>
+
+                <h5><code>displayLoanTotals()</code></h5>
+                <p>Finally, this function displays the totals on the page. It calculates the total if it was not already calcuated and then utilizes the
+                    formatCurrency function to display the amount in USD with two decimal places. 
+                </p>
             </div>
         </div>
     </main>
